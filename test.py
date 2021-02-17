@@ -6,7 +6,7 @@ import africastalking
 class SMS:
     def __init__(self):
 		# Set your app credentials
-        self.username = "Grey Fish"
+        self.username = "greyfish"
         self.api_key = "94aab9f6f6417aca4ddc6f035861518cd469a9d9cf037d58f055a72bbdf58a89"
 
         # Initialize the SDK
@@ -23,7 +23,7 @@ class SMS:
             message = "I'm a lumberjack and it's ok, I sleep all night and I work all day";
 
             # Set your shortCode or senderId
-            sender = "shortCode or senderId"
+            sender = "59879"
             try:
 				# Thats it, hit send and we'll take care of the rest.
                 response = self.sms.send(message, recipients, sender)

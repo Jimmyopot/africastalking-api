@@ -1,21 +1,23 @@
-import africastalking 
 import requests
 
-username = "Grey Fish"
-api_key = "3390746e38a5e21b5b72349b31daf6b017f13f405c503e54a417fa3cd2b4f11a"
-africastalking.initialize(username, api_key)
+url = 'https://api.sandbox.africastalking.com/version1/messaging'  # set url  
+        
+headers = {
+    'ApiKey': "94aab9f6f6417aca4ddc6f035861518cd469a9d9cf037d58f055a72bbdf58a89", 
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'Accept': 'application/json'
+}
 
-# Get the SMS service
-sms = africastalking.SMS
+data = {
+    'username': "greyfish",
+    'from': "59879",
+    'message': "Hi there...",
+    'to': "+254724021814",
+}
 
-# Use the service synchronously
-response = sms.send("Hello Message!", ["+254724021814"])
-print(response)
+def make_post_request():  
+    response = requests.post(url=url, headers=headers, data=data )
+    return response
 
-# Or use it asynchronously
-def on_finish(error, response):
-    if error is not None:
-        raise error
-    print(response)
+print(make_post_request().json())
 
-sms.send("Hello Message!", ["+2547xxxxxx"], callback=on_finish)
